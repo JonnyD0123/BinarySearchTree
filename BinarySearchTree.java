@@ -96,9 +96,15 @@ public class BinarySearchTree {
 
     public Node contains(Node current, Album album) {
         if(current != null) {
-            if(current.album.compareTo(album) == 0) return current;
-            else if (current.album.compareTo(album) < 0) return contains(current.leftChild, album);
-            else if (current.album.compareTo(album) > 0) return contains(current.rightChild, album);
+            if (current.album.compareTo(album) == 0) {
+                return current;
+            }
+            else if (current.album.compareTo(album) > 0) {
+                return contains(current.leftChild, album);
+            }
+            else if (current.album.compareTo(album) < 0) {
+                return contains(current.rightChild, album);
+            }
         }
         return current;
     }
