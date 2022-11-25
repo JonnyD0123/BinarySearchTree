@@ -27,7 +27,7 @@ public class BinarySearchTree {
         StringBuilder stb = new StringBuilder();
         if(current != null) {
             stb.append(this.inOrderTraversal(current.leftChild));
-            stb.append(current.album + " ");
+            stb.append(current.album.numSongs + " ");
             stb.append(this.inOrderTraversal(current.rightChild));
         }
         return stb.toString();
@@ -36,7 +36,7 @@ public class BinarySearchTree {
     public String preOrderTraversal(Node current){
         StringBuilder stb = new StringBuilder();
         if(current != null) {
-            stb.append(current.album + " ");
+            stb.append(current.album.numSongs + " ");
             stb.append(this.preOrderTraversal(current.leftChild));
             stb.append(this.preOrderTraversal(current.rightChild));
         }
@@ -48,7 +48,7 @@ public class BinarySearchTree {
         if(current != null) {
             stb.append(this.postOrderTraversal(current.leftChild));
             stb.append(this.postOrderTraversal(current.rightChild));
-            stb.append(current.album + " ");
+            stb.append(current.album.numSongs + " ");
         }
         return stb.toString();
     }
