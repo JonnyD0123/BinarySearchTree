@@ -89,4 +89,19 @@ public class BinarySearchTree {
         }
         return current;
     }
+
+    public boolean contains(Album album) {
+        return this.contains(this.root, album)!=null;
+    }
+
+    public Node contains(Node current, Album album) {
+        if(current != null) {
+            if(current.album.compareTo(album) == 0) return current;
+            else if (current.album.compareTo(album) < 0) return contains(current.leftChild, album);
+            else if (current.album.compareTo(album) > 0) return contains(current.rightChild, album);
+        }
+        return current;
+    }
+
+
 }
