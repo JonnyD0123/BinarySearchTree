@@ -55,7 +55,6 @@ class BinarySearchTreeTest {
     @Test
     public void testDelete() {
         BinarySearchTree bst = new BinarySearchTree();
-
         ArrayList<String> artistNames = new ArrayList<>();
         artistNames.add("Artist 1");
         artistNames.add("Artist 2");

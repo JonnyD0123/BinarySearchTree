@@ -1,3 +1,6 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class BinarySearchTree {
 
     protected Node root;
@@ -109,5 +112,29 @@ public class BinarySearchTree {
         return current;
     }
 
+    public ArrayList<Node> storeBSTNodes(Node current, ArrayList<Node> nodes) {
+        if(current != null) {
+            storeBSTNodes(current.leftChild, nodes);
+            nodes.add(current);
+            storeBSTNodes(current.rightChild, nodes);
+        }
+        return nodes;
+    }
+
+    public Node buildTree(ArrayList<Node> nodes, int start, int end) {
+        if (start > end) return null;
+        int mid = (start + end)/2;
+        Node current = nodes.get(mid);
+        current.leftChild = buildTree(nodes, start, mid-1);
+        current.rightChild = buildTree(nodes, mid+1, end);
+        return current;
+    }
+
+    public Node rebalance() {
+        ArrayList<Node> nodes = new ArrayList<>();
+        nodes = storeBSTNodes(this.root, nodes);
+        int n = nodes.size();
+        return buildTree(nodes, 0, n-1);
+    }
 
 }
