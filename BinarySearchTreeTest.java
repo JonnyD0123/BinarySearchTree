@@ -64,9 +64,13 @@ class BinarySearchTreeTest {
         Album a3 = new Album(3, artistNames, "album 3", 15);
         Album a4 = new Album(4, artistNames, "album 4", 5);
         Album a5 = new Album(5, artistNames, "album 5", 55);
+        Album a6 = new Album(6, artistNames, "album 6", 35);
 
         //returns null because list is empty
         bst.delete(a1);
+
+        //returns null because Album a6 is not found in list
+        bst.delete(a6);
 
         bst.insert(a1);
         bst.insert(a2);
@@ -152,4 +156,28 @@ class BinarySearchTreeTest {
         System.out.println(bst.toString());
     }
 
+    @Test
+    public void testStoreBSTNodes() {
+        BinarySearchTree bst = new BinarySearchTree();
+        ArrayList<String> artistNames = new ArrayList<>();
+        artistNames.add("Artist 1");
+        artistNames.add("Artist 2");
+
+        Album a1 = new Album(1, artistNames, "album 1", 25);
+        Album a2 = new Album(2, artistNames, "album 2", 45);
+        Album a3 = new Album(3, artistNames, "album 3", 15);
+        Album a4 = new Album(4, artistNames, "album 4", 5);
+        Album a5 = new Album(5, artistNames, "album 5", 55);
+        Album a6 = new Album(6, artistNames, "album 6", 35);
+
+        bst.insert(a1);
+        bst.insert(a2);
+        bst.insert(a3);
+        bst.insert(a4);
+        bst.insert(a5);
+
+        ArrayList<Node> nodes = new ArrayList<>();
+        bst.storeBSTNodes(bst.root, nodes);
+        assertEquals(5, nodes.size());
+    }
 }
