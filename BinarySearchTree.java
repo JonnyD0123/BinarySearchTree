@@ -1,5 +1,8 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class BinarySearchTree {
 
@@ -135,6 +138,34 @@ public class BinarySearchTree {
         nodes = storeBSTNodes(this.root, nodes);
         int n = nodes.size();
         return buildTree(nodes, 0, n-1);
+    }
+
+    public String toString(Node root) {
+        StringBuilder stb = new StringBuilder();
+        if (root == null) stb.append("N ");
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        stb.append(root.album.numSongs + " ");
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            List<Integer> level = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                Node current = queue.remove();
+                if(current.leftChild != null) {
+                    queue.add(current.leftChild);
+                    stb.append(current.leftChild.album.numSongs + " ");
+                } else stb.append("N ");
+                if (current.rightChild != null) {
+                    queue.add(current.rightChild);
+                    stb.append(current.rightChild.album.numSongs + " ");
+                } else stb.append("N ");
+            }
+        }
+        return stb.toString();
+    }
+
+    public String toString() {
+        return this.toString(this.root);
     }
 
 }
