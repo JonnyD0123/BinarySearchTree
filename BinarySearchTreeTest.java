@@ -24,8 +24,6 @@ class BinarySearchTreeTest {
         bst.insert(a3);
         assertEquals(4, bst.root.leftChild.album.numSongs);
         assertEquals(13, bst.root.rightChild.album.numSongs);
-
-
     }
 
     @Test
