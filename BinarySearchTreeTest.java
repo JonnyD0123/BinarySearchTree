@@ -193,7 +193,6 @@ class BinarySearchTreeTest {
         Album a3 = new Album(3, artistNames, "album 3", 15);
         Album a4 = new Album(4, artistNames, "album 4", 5);
         Album a5 = new Album(5, artistNames, "album 5", 55);
-        Album a6 = new Album(6, artistNames, "album 6", 35);
 
         bst.insert(a1);
         bst.insert(a2);
