@@ -148,17 +148,20 @@ public class BinarySearchTree {
         stb.append(root.album.numSongs + " ");
         while (!queue.isEmpty()) {
             int size = queue.size();
-            List<Integer> level = new ArrayList<>();
             for (int i = 0; i < size; i++) {
                 Node current = queue.remove();
                 if(current.leftChild != null) {
                     queue.add(current.leftChild);
                     stb.append(current.leftChild.album.numSongs + " ");
-                } else stb.append("N ");
+                } else {
+                    stb.append("N ");
+                }
                 if (current.rightChild != null) {
                     queue.add(current.rightChild);
                     stb.append(current.rightChild.album.numSongs + " ");
-                } else stb.append("N ");
+                } else {
+                    stb.append("N ");
+                }
             }
         }
         return stb.toString();
@@ -166,6 +169,26 @@ public class BinarySearchTree {
 
     public String toString() {
         return this.toString(this.root);
+    }
+
+    public ArrayList<Album> partition(Album a) {
+        ArrayList<Album> partitioned = new ArrayList<>();
+        Node temp = this.root;
+        if(temp == null) {
+            try {
+                throw new IllegalArgumentException("Cannot delete a node from an empty list");
+            } catch (IllegalArgumentException e) {
+                System.out.println("Empty List");
+            }
+        } else {
+            while(temp!=null) {
+                if(temp.album.numSongs.compareTo(a.numSongs)>0){
+                    partitioned.add(temp.album);
+                }
+                temp = temp.rightChild;
+            }
+        }
+        return partitioned;
     }
 
 
