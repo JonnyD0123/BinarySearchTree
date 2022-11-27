@@ -254,6 +254,8 @@ class BinarySearchTreeTest {
         bst.insert(a5);
         bst.insert(a7);
 
-        assertEquals("40 45 55 ", bst.partition(a6));
+        assertEquals("[ID: 2 NUM_SONGS: 45 -- ARTIST NAMES: [Artist 1, Artist 2], " +
+                "ID: 7 NUM_SONGS: 40 -- ARTIST NAMES: [Artist 1, Artist 2], " +
+                "ID: 5 NUM_SONGS: 55 -- ARTIST NAMES: [Artist 1, Artist 2]]", bst.partition(a6).toString());
     }
 }
