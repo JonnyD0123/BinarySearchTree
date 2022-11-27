@@ -227,7 +227,7 @@ class BinarySearchTreeTest {
         bst.insert(a6);
 
         System.out.println(bst.toString());
-        System.out.println(bst.rebalance());
+        assertEquals("4 2 6 1 3 5 N N N N N N N ", bst.rebalance().toString());
     }
 
     @Test
