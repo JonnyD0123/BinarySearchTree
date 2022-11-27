@@ -185,6 +185,16 @@ public class BinarySearchTree {
                 if(temp.album.numSongs.compareTo(a.numSongs)>0){
                     partitioned.add(temp.album);
                 }
+                if(temp.leftChild!=null){
+                    if(temp.leftChild.album.numSongs.compareTo(a.numSongs)>0){
+                        partitioned.add(temp.leftChild.album);
+                    }
+                }
+                if(temp.rightChild!=null){
+                    if(temp.rightChild.album.numSongs.compareTo(a.numSongs)<0){
+                        partitioned.add(temp.rightChild.album);
+                    }
+                }
                 temp = temp.rightChild;
             }
         }

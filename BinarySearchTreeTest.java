@@ -36,8 +36,8 @@ class BinarySearchTreeTest {
         artistNames.add("Artist 1");
         artistNames.add("Artist 2");
 
-        Album a1 = new Album(1, artistNames, "album 1", 5);
-        Album a2 = new Album(2, artistNames, "album 2", 4);
+        Album a1 = new Album(1, artistNames, "album 1", 4);
+        Album a2 = new Album(2, artistNames, "album 2", 5);
         Album a3 = new Album(3, artistNames, "album 3", 13);
         Album a4 = new Album(4, artistNames, "album 4", 14);
         Album a5 = new Album(5, artistNames, "album 5", 11);
@@ -48,8 +48,8 @@ class BinarySearchTreeTest {
         bst.insert(a4);
         bst.insert(a5);
         assertEquals("4 5 11 13 14 ", bst.orderTraversal(0));
-        assertEquals("5 4 13 11 14 ", bst.orderTraversal(-1));
-        assertEquals("4 11 14 13 5 ", bst.orderTraversal(1));
+        assertEquals("4 5 13 11 14 ", bst.orderTraversal(-1));
+        assertEquals("11 14 13 5 4 ", bst.orderTraversal(1));
     }
 
     @Test
@@ -254,6 +254,6 @@ class BinarySearchTreeTest {
         bst.insert(a5);
         bst.insert(a7);
 
-        assertEquals("45 55 ", bst.partition(a6));
+        assertEquals("40 45 55 ", bst.partition(a6));
     }
 }
