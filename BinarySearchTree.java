@@ -133,11 +133,18 @@ public class BinarySearchTree {
         return current;
     }
 
-    public Node rebalance() {
+    public BinarySearchTree rebalance() {
+        BinarySearchTree bst = new BinarySearchTree();
         ArrayList<Node> nodes = new ArrayList<>();
+        this.inOrderTraversal();
         nodes = storeBSTNodes(this.root, nodes);
-        int n = nodes.size();
-        return buildTree(nodes, 0, n-1);
+        int high = nodes.size();
+        for (int i = Integer.highestOneBit(high); i > 0; i>>=1) {
+            for(int j = i; j <= high; j += i) {
+                bst.insert(nodes.get(j-1).album);
+            }
+        }
+        return bst;
     }
 
     public String toString(Node root) {
@@ -176,7 +183,7 @@ public class BinarySearchTree {
         Node temp = this.root;
         if(temp == null) {
             try {
-                throw new IllegalArgumentException("Cannot delete a node from an empty list");
+                throw new IllegalArgumentException("Cannot partition an empty list");
             } catch (IllegalArgumentException e) {
                 System.out.println("Empty List");
             }

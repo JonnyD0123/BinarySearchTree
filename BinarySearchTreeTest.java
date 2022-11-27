@@ -212,12 +212,12 @@ class BinarySearchTreeTest {
         artistNames.add("Artist 1");
         artistNames.add("Artist 2");
 
-        Album a1 = new Album(1, artistNames, "album 1", 25);
-        Album a2 = new Album(2, artistNames, "album 2", 45);
-        Album a3 = new Album(3, artistNames, "album 3", 15);
-        Album a4 = new Album(4, artistNames, "album 4", 5);
-        Album a5 = new Album(5, artistNames, "album 5", 55);
-        Album a6 = new Album(6, artistNames, "album 6", 35);
+        Album a1 = new Album(1, artistNames, "album 1", 1);
+        Album a2 = new Album(2, artistNames, "album 2", 2);
+        Album a3 = new Album(3, artistNames, "album 3", 3);
+        Album a4 = new Album(4, artistNames, "album 4", 4);
+        Album a5 = new Album(5, artistNames, "album 5", 5);
+        Album a6 = new Album(6, artistNames, "album 6", 6);
 
         bst.insert(a1);
         bst.insert(a2);
@@ -227,8 +227,7 @@ class BinarySearchTreeTest {
         bst.insert(a6);
 
         System.out.println(bst.toString());
-        assertEquals(bst.root, bst.rebalance());
-        System.out.println(bst.toString());
+        System.out.println(bst.rebalance());
     }
 
     @Test
